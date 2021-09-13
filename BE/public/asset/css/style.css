@@ -1,0 +1,11 @@
+.error{
+  font-style: italic;
+  color: red;
+  font-weight: 250;
+}
+.btn .btn-danger{
+   display: flex;
+   justify-content: right;
+   align-items: flex-end;
+   margin-left:100%;
+}

@@ -1,0 +1,15 @@
+<IfModule mod_headers.c>
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+Header set X-Frame-Options "SAMEORIGIN"
+Header set X-Content-Type-Options "nosniff"
+Header set Referrer-Policy "strict-origin-when-cross-origin"
+Header set Content-Security-Policy "default-src https: data: 'unsafe-inline' 'unsafe-eval'"
+Header set Permissions-Policy "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+Header set Set-Cookie "HttpOnly; Secure"
+</IfModule>
+<IfModule mod_rewrite.c>
+	RewriteEngine On 
+	RewriteCond %{HTTP:Authorization} ^(.*)
+	RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+	RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
